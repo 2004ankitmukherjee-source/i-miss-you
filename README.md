@@ -1,2 +1,94 @@
-# i-miss-you
-noting
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I Love You ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: 'Segoe UI', cursive;
+    }
+
+    .container {
+        text-align: center;
+        animation: fadeIn 3s ease-in-out;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+        color: #fff;
+        text-shadow: 0 0 10px #ff4d6d, 0 0 30px #ff4d6d;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    p {
+        font-size: 1.6rem;
+        color: #fff;
+        margin-top: 15px;
+        opacity: 0.9;
+    }
+
+    .heart {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 20px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(100vh) scale(0.8);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-10vh) scale(1.4);
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>I love you...</h1>
+    <p>More than words can ever say ❤️</p>
+</div>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
+
